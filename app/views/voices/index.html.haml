@@ -1,0 +1,7 @@
+- @voices.each do |voice|
+	%h2
+		=link_to voice.title, voice
+	%p= voice.opinion
+
+
+= link_to "New Voice", new_voice_path

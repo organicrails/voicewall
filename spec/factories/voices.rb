@@ -4,4 +4,6 @@ FactoryGirl.define do
 	opinion "MyText"
   end
 
+  
+
 end

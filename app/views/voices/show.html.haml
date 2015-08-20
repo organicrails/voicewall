@@ -1,0 +1,5 @@
+%h2= @voice.title
+%p= @voice.opinion
+
+= link_to "Edit", edit_voice_path(@voice)
+= link_to "Destroy", voice_path(@voice), method: :delete, data: {confirm: "Are you sure?"}
