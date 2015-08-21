@@ -60,62 +60,7 @@ RSpec.describe VoicesController, type: :controller do
 		end
 	end
 
-	describe "#edit" do
-		it "render the edit template" do
-			get :edit, id: FactoryGirl.create(:voice)
-			expect(response).to render_template :edit
-		end
-	end
-
-	describe "#update" do
-
-		before :each do
-			@initial_voice = FactoryGirl.create(:voice, title: "Chipotle", opinion: "It is awesome.")
-		end
-
-		context "with valid inputs" do
-
-			it "located the requested @voice" do
-				put :update, id: @initial_voice, voice: FactoryGirl.attributes_for(:voice)
-				expect(assigns(:voice)).to eq(@initial_voice)
-			end
-
-			it "changes the @voice attributes" do
-				put :update, id: @initial_voice, voice: FactoryGirl.attributes_for(:voice, title: "McDonalds", opinion: "It is only okay...")
-				@initial_voice.reload
-				expect(@initial_voice.title).to eq("McDonalds")
-				expect(@initial_voice.opinion).to eq("It is only okay...")
-			end
-
-			it "redirects to the updated contact" do
-        put :update, id: @initial_voice, voice: FactoryGirl.attributes_for(:voice)
-        expect(response).to redirect_to @initial_voice
-      end
-
-
-		end
-
-		context "with invalid inputs" do
-
-			it "located the requested @voice" do
-				put :update, id: @initial_voice, voice: FactoryGirl.attributes_for(:invalid_voice)
-				expect(assigns(:voice)).to eq(@initial_voice)
-			end
-
-			it "changes the @voice attributes" do
-				put :update, id: @initial_voice, voice: FactoryGirl.attributes_for(:voice, title: nil, opinion: "It is only okay...")
-				@initial_voice.reload
-				expect(@initial_voice.title).not_to eq("McDonalds")
-				expect(@initial_voice.opinion).not_to eq("It is only okay...")
-			end
-
-			it "redirects to the updated contact" do
-        put :update, id: @initial_voice, voice: FactoryGirl.attributes_for(:invalid_voice)
-        expect(response).to render_template :edit
-      end
-
-		end
-	end
+	
 
 
 end
