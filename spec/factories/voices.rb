@@ -4,6 +4,9 @@ FactoryGirl.define do
 	opinion "MyText"
   end
 
-  
+  factory :invalid_voice, parent: :voice do
+  	title nil
+  end
 
 end
+ 
