@@ -53,5 +53,12 @@ RSpec.describe VoicesController, type: :controller do
 		end
 	end
 
+	describe "#show" do
+		it "render the show template" do
+			get :show, id: FactoryGirl.create(:voice)
+			expect(response).to render_template :show
+		end
+	end
+
 
 end
