@@ -117,4 +117,20 @@ RSpec.describe VoicesController, type: :controller do
 		end
 	end
 	
+	describe "#destroy" do
+		before :each do
+    	@voice = FactoryGirl.create(:voice)
+  	end
+
+  	it "deletes the Voice" do
+  		expect{
+  			delete :destroy, id: @voice
+  		}.to change(Voice, :count).by(-1)
+  	end
+
+  	it "redirects to root page" do
+    	delete :destroy, id: @voice
+    	expect(response).to redirect_to root_path
+  	end
+	end
 end
