@@ -109,13 +109,12 @@ RSpec.describe VoicesController, type: :controller do
 				expect(@initial_voice.opinion).not_to eq("It is only okay...")
 			end
 
-			it "redirects to the updated contact" do
+			it "renders the edit template again" do
         put :update, id: @initial_voice, voice: FactoryGirl.attributes_for(:invalid_voice)
         expect(response).to render_template :edit
       end
 
 		end
 	end
-
-
+	
 end
